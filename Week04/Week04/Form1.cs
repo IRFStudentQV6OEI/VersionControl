@@ -76,10 +76,35 @@ namespace Week04
             }
             object[,] values = new object[Flats.Count, Headers.Length];
             int counter = 0;
-            foreach (var f in Flats)
+            foreach (Flat f in Flats)
             {
-
+                values[counter, 1] = f.Code;
+                values[counter, 2] = f.Vendor;
+                values[counter, 3] = f.Side;
+                values[counter, 4] = f.District;
+                values[counter, 5] = f.Elevator;
+                values[counter, 6] = (int)f.NumberOfRooms;
+                values[counter, 7] = (int)f.FloorArea;
+                values[counter, 8] = (int)f.Price;
+                counter++;
             }
+        }
+        private string getcell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
+
         }
     }
 }
