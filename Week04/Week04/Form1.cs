@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Data.Entity.Migrations.Model;
+using System.Data.Entity;
 
 namespace Week04
 {
@@ -53,11 +54,6 @@ namespace Week04
 
         private void CreateTable()
         {
-            throw new NotImplementedException();
-        }
-
-        private void Loaddata()
-        {
             var Headers = new string[]
             {
                 "Kód",
@@ -88,6 +84,13 @@ namespace Week04
                 values[counter, 8] = (int)f.Price;
                 counter++;
             }
+            xlWs.get(getcell(2,1),
+                1+values.GetLength(0),values.GetLength(1));
+        }
+
+        private void Loaddata()
+        {
+            Flats = context.Flats.ToList();
         }
         private string getcell(int x, int y)
         {
@@ -104,7 +107,7 @@ namespace Week04
             ExcelCoordinate += x.ToString();
 
             return ExcelCoordinate;
-
+                
         }
     }
 }
