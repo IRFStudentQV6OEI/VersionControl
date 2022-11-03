@@ -32,6 +32,9 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.createtimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
+            this.carbtn = new System.Windows.Forms.Button();
+            this.ballbtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -56,15 +59,48 @@
             this.conveyorTimer.Interval = 10;
             this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
             // 
+            // carbtn
+            // 
+            this.carbtn.Location = new System.Drawing.Point(21, 12);
+            this.carbtn.Name = "carbtn";
+            this.carbtn.Size = new System.Drawing.Size(125, 61);
+            this.carbtn.TabIndex = 1;
+            this.carbtn.Text = "CAR";
+            this.carbtn.UseVisualStyleBackColor = true;
+            this.carbtn.Click += new System.EventHandler(this.carbtn_Click);
+            // 
+            // ballbtn
+            // 
+            this.ballbtn.Location = new System.Drawing.Point(152, 12);
+            this.ballbtn.Name = "ballbtn";
+            this.ballbtn.Size = new System.Drawing.Size(125, 61);
+            this.ballbtn.TabIndex = 2;
+            this.ballbtn.Text = "BALL";
+            this.ballbtn.UseVisualStyleBackColor = true;
+            this.ballbtn.Click += new System.EventHandler(this.ballbtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(283, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Comming next:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 634);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ballbtn);
+            this.Controls.Add(this.carbtn);
             this.Controls.Add(this.mainPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -73,6 +109,9 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Timer createtimer;
         private System.Windows.Forms.Timer conveyorTimer;
+        private System.Windows.Forms.Button carbtn;
+        private System.Windows.Forms.Button ballbtn;
+        private System.Windows.Forms.Label label1;
     }
 }
 
