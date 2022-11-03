@@ -35,6 +35,7 @@
             this.carbtn = new System.Windows.Forms.Button();
             this.ballbtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.colorbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -88,11 +89,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Comming next:";
             // 
+            // colorbtn
+            // 
+            this.colorbtn.Location = new System.Drawing.Point(21, 80);
+            this.colorbtn.Name = "colorbtn";
+            this.colorbtn.Size = new System.Drawing.Size(125, 23);
+            this.colorbtn.TabIndex = 4;
+            this.colorbtn.Text = "button1";
+            this.colorbtn.UseVisualStyleBackColor = true;
+            this.colorbtn.Click += new System.EventHandler(this.colorbtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 634);
+            this.Controls.Add(this.colorbtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ballbtn);
             this.Controls.Add(this.carbtn);
@@ -112,6 +124,7 @@
         private System.Windows.Forms.Button carbtn;
         private System.Windows.Forms.Button ballbtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button colorbtn;
     }
 }
 
