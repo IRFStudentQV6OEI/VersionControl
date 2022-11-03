@@ -97,5 +97,40 @@ namespace Week06
             }
             button.BackColor = colorPicker.Color;
         }
+
+        private void boxcolbtn_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            button.BackColor = colorPicker.Color;
+        }
+
+        private void ribboncolbtn_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            button.BackColor = colorPicker.Color;
+        }
+
+        private void presentbtn_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory()
+            {
+                Boxcolor = boxcolbtn.BackColor,
+                Ribboncolor = ribboncolbtn.BackColor,
+            };
+        }
     }
 }
