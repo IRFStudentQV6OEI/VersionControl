@@ -8,6 +8,6 @@ namespace Week06
 {
     public interface ItoyFactory
     {
-        Toy CreatNew();
+        Toy CreateNew();
     }
 }
