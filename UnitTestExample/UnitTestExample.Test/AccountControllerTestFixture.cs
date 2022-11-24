@@ -44,11 +44,6 @@ namespace UnitTestExample.Test
             var accountController = new AccountController();
             var actualResult = accountController.ValidatePassword(pword);
             Assert.AreEqual(expectedResult, actualResult);
-
-            var regex = new Regex("(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,15})");
-            var match = regex.Match(pword);
-
-
     
         }
 
