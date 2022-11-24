@@ -5,6 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnitTestExample.Controllers;
+using UnitTestExample.Test;
+using NUnit;
+using Moq;
+using System.Text.RegularExpressions;
+
+
 
 namespace UnitTestExample.Test
 {
@@ -38,6 +44,12 @@ namespace UnitTestExample.Test
             var accountController = new AccountController();
             var actualResult = accountController.ValidatePassword(pword);
             Assert.AreEqual(expectedResult, actualResult);
+
+            var regex = new Regex("(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,15})");
+            var match = regex.Match(pword);
+
+
+    
         }
 
 
