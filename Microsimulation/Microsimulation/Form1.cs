@@ -151,9 +151,6 @@ namespace Microsimulation
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
                 Femalepop.Add(nbrOfFemales);
-                
-                Console.WriteLine(
-                    String.Format("Év:{0} Fiúk:{1} Lányok{2}", year, nbrOfMales, nbrOfFemales));
             }
             DisplayResults();
         }
