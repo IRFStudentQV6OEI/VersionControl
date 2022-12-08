@@ -24,6 +24,7 @@ namespace Evolution
         public Form1()
         {
             InitializeComponent();
+            label1.BringToFront();
 
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
@@ -41,6 +42,11 @@ namespace Evolution
         {
             generation++;
             label1.Text = String.Format("{0}. generáció", generation);
+
+            var playerlist = from p in gc.GetCurrentPlayers()
+                             orderby p.GetFitness() descending
+                             select p;
+            var topPreformers = playerlist.Take(populationSize / 2).ToList();
         }
     }
 }
