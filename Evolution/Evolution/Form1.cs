@@ -37,6 +37,7 @@ namespace Evolution
             }
             gc.Start();
         }
+        Brain winnerBrain = null;
 
         private void Gc_GameOver(object sender)
         {
@@ -47,6 +48,18 @@ namespace Evolution
                              orderby p.GetFitness() descending
                              select p;
             var topPreformers = playerlist.Take(populationSize / 2).ToList();
+
+            var winners = from p in topPreformers
+                          where p.IsWinner
+                          select p;
+            if (winners.Count()>0)
+            {
+                winnerBrain = winners.FirstOrDefault().Brain.Clone();
+                gc.GameOver -= Gc_GameOver;
+                button1.Visible = true;
+                return;
+
+            }
 
             gc.ResetCurrentLevel();
             foreach (var p in topPreformers)
@@ -66,6 +79,15 @@ namespace Evolution
                     gc.AddPlayer(b.Mutate());
             }
             gc.Start();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gc.ResetCurrentLevel();
+            gc.AddPlayer(winnerBrain.Clone());
+            gc.AddPlayer();
+            ga.Focus();
+            gc.Start(true);
         }
     }
 }
