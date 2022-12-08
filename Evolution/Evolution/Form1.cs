@@ -28,8 +28,19 @@ namespace Evolution
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
 
-            gc.AddPlayer();
-            gc.Start(true);
+            gc.GameOver += Gc_GameOver;
+
+            for (int i = 0; i < populationSize; i++)
+            {
+                gc.AddPlayer(nbrOfSteps);
+            }
+            gc.Start();
+        }
+
+        private void Gc_GameOver(object sender)
+        {
+            generation++;
+            label1.Text = String.Format("{0}. generáció", generation);
         }
     }
 }
