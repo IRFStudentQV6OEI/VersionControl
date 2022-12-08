@@ -12,9 +12,15 @@ namespace WorldsHardestGame
 {
     public partial class Form1 : Form
     {
+        GameController gc = new GameController();
+        GameArea ga;
         public Form1()
         {
             InitializeComponent();
+
+            ga = gc.ActivateDisplay();
+
+            this.Controls.Add(ga);
         }
     }
 }
