@@ -99,11 +99,11 @@ namespace Week05
             }
 
             var series = chart1.Series[0];
-            series.ChartType = SeriesChartType.Line;
+            series.ChartType = SeriesChartType.Candlestick;
             series.XValueMember = "date";
             series.YValueMembers = "value";
             series.BorderWidth = 2;
-            series.Color = Color.Red;
+            series.Color = Color.Blue;
 
             var legend = chart1.Legends[0];
             legend.Enabled = false;
